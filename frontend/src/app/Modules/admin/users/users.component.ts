@@ -11,16 +11,23 @@ import { OrderServiceService } from 'src/app/Services/order-service.service';
 })
 export class UsersComponent implements OnInit {
   users: Iuser[] = [];
-  constructor(
-    private orderService: OrderServiceService,
-    private store: Store<any>,
-    private router: Router,
-    private route: ActivatedRoute // private
-  ) {}
+  constructor(private orderService: OrderServiceService) {}
 
-  ngOnInit(): void {}
-  deleteUser(id: string) {
-    // this.store.dispatch(DeleteOrder({ id }));
-    // this.store.dispatch(LoadOrders());
+  ngOnInit(): void {
+    // this.fetchUser;
+    this.fetchUser();
+  }
+  deleteUser(id: string = '1') {}
+
+  fetchUser() {
+    this.orderService.getUsers().subscribe({
+      next: (data) => {
+        this.users = data.users;
+      },
+
+      error: (error) => console.log(error),
+
+      complete: () => console.log('Complete loading users'),
+    });
   }
 }

@@ -1,15 +1,16 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Iorders, Iuser } from '../Interfaces/interfaces';
+import { Iparcel, Iuser, IUserResponse } from '../Interfaces/interfaces';
 
 @Injectable({
   providedIn: 'root',
 })
 export class OrderServiceService {
   private baseUrl = 'http://localhost:8000';
+  token = localStorage.getItem('token') as string;
 
-  orders$!: Observable<Iorders[]>;
+  parcel$!: Observable<Iparcel[]>;
   httpOptions: { headers: any; observe: string };
 
   constructor(private http: HttpClient) {
@@ -19,26 +20,29 @@ export class OrderServiceService {
     };
   }
 
-  getUsers(): Observable<Iuser> {
-    return this.http.get<Iuser>(`${this.baseUrl}/users`);
+  getUsers(): Observable<IUserResponse> {
+    return this.http.get<IUserResponse>(`${this.baseUrl}/users`);
   }
   registerCustomer(user: [Iuser]): Observable<Iuser> {
     return this.http.post<Iuser>(`${this.baseUrl}/users`, user);
   }
 
-  getParcels(): Observable<Iorders[]> {
-    return this.http.get<Iorders[]>(`${this.baseUrl}parcels`);
+  getParcels(): Observable<Iparcel[]> {
+    console.log('parcels');
+    return this.http.get<Iparcel[]>(`${this.baseUrl}/parcels`);
   }
-  getParcelDetails(id: number): Observable<Iorders[]> {
-    return this.http.get<Iorders[]>(`${this.baseUrl}/parcels/${id}`);
+  getParcelDetails(id: number): Observable<Iparcel[]> {
+    return this.http.get<Iparcel[]>(`${this.baseUrl}/parcels/${id}`);
   }
 
   deleteParcel(id: number = 0): Observable<{ message: string }> {
-    return this.http.delete<{ message: string }>(`${this.baseUrl}/p/${id}`);
+    return this.http.delete<{ message: string }>(
+      `${this.baseUrl}/parcels/${id}`
+    );
   }
-  createParcel(parcel: Iorders): Observable<{ message: string }> {
+  createParcel(parcel: Iparcel): Observable<{ message: string }> {
     return this.http.post<{ message: string }>(
-      `${this.baseUrl}/orders`,
+      `${this.baseUrl}/parcels`,
       parcel
     );
   }

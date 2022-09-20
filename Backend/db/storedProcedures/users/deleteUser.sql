@@ -1,4 +1,3 @@
-USE users;
 GO
 
 CREATE OR ALTER PROCEDURE deleteUser
@@ -7,6 +6,6 @@ CREATE OR ALTER PROCEDURE deleteUser
 )
 AS
 BEGIN
-    DELETE FROM users
+    DELETE FROM dbo.users
     WHERE id = @id
 END

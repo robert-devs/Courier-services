@@ -18,12 +18,12 @@ export class EffectsService {
   ) {}
   loadOrder = createEffect(() => {
     return this.actions.pipe(
-      ofType(OrderActions.LoadOrders),
+      ofType(OrderActions.loadParcels),
       concatMap(() =>
-        this.orderService.getOrders().pipe(
-          map((res) => OrderActions.LoadOrdersSuccess({ orders: res })),
+        this.orderService.getParcels().pipe(
+          map((res) => OrderActions.LoadParcelsSuccess({ parcels: res })),
           catchError((error) =>
-            of(OrderActions.LoadOrdersFailure({ error: error }))
+            of(OrderActions.LoadParcelsFailure({ error: error }))
           )
         )
       )
@@ -31,18 +31,18 @@ export class EffectsService {
   });
   addOrder = createEffect(() => {
     return this.actions.pipe(
-      ofType(OrderActions.AddOrder),
+      ofType(OrderActions.AddParcel),
       mergeMap((action) =>
-        this.orderService.createOrder(action.newOrder).pipe(
+        this.orderService.createParcel(action.newParcel).pipe(
           tap((res) => {
-            this.store.dispatch(OrderActions.LoadOrders());
+            this.store.dispatch(OrderActions.loadParcels());
             this.router.navigate(['/admin/view-order']);
           }),
           map((res) =>
-            OrderActions.AddOrderSuccess({ addMessage: res.message })
+            OrderActions.AddParcelSuccess({ addMessage: res.message })
           ),
           catchError((error) =>
-            of(OrderActions.AddOrderFailure({ error: error }))
+            of(OrderActions.AddParcelFailure({ error: error }))
           )
         )
       )
@@ -50,20 +50,20 @@ export class EffectsService {
   });
   deleteOrder = createEffect(() => {
     return this.actions.pipe(
-      ofType(OrderActions.DeleteOrder),
+      ofType(OrderActions.DeleteParcel),
       mergeMap((action) =>
-        this.orderService.deleteOrder(action.id).pipe(
+        this.orderService.deleteParcel(action.id).pipe(
           tap((res) => {
             // this.store.dispatch(OrderActions.SelectedId({ id: 0 }));
             this.router.navigate(['/admin/view-order']);
           }),
           map((res) =>
-            OrderActions.DeleteOrderSuccess({ deletemessage: res.message })
+            OrderActions.DeleteParcelSuccess({ deletemessage: res.message })
           )
         )
       ),
       catchError((error) =>
-        of(OrderActions.DeleteOrderFailure({ error: error.message }))
+        of(OrderActions.DeleteParcelFailure({ error: error.message }))
       )
     );
   });

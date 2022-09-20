@@ -117,10 +117,10 @@ export const registerUserController = async (req:ExtendedUserRequest,res:Respons
 export const getUsers =async(req:Request,res:Response)=>{
     try {
        const pool= await mssql.connect(sqlConfig)
-       const users = await pool.request().execute('getUsers')
+       const users = await (await pool.request().execute('getUsers')).recordset
        
-    const{recordset} = users
-       res.json({users: recordset,  success: true})
+    
+       res.json({users: users,  success: true})
     } catch (error:any) {
         res.status(500).send({message:"Internal Server Error: "+ error.message,  success: false})
         

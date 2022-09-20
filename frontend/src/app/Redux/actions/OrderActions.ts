@@ -1,12 +1,12 @@
 import { createAction, props } from '@ngrx/store';
-import { Iorders } from 'src/app/Interfaces/interfaces';
+import { Iparcel } from 'src/app/Interfaces/interfaces';
 
 export const SelectedId = createAction('SelectedId', props<{ id: number }>());
 
 export const loadParcels = createAction('loadParcels');
 export const LoadParcelsSuccess = createAction(
   'LoadParcelsSuccess',
-  props<{ parcels: Iorders[] }>()
+  props<{ parcels: Iparcel[] }>()
 );
 export const LoadParcelsFailure = createAction(
   'LoadParcelsFailure',
@@ -28,7 +28,7 @@ export const DeleteParcelFailure = createAction(
 
 export const AddParcel = createAction(
   'AddParcel',
-  props<{ newParcel: Iorders }>()
+  props<{ newParcel: Iparcel }>()
 );
 export const AddParcelSuccess = createAction(
   'AddParcelSuccess',

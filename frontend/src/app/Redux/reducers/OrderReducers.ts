@@ -5,72 +5,72 @@ import {
   createSelector,
   on,
 } from '@ngrx/store';
-import { Iorders } from 'src/app/Interfaces/interfaces';
-import * as OrdersAction from '../actions/OrderActions';
-export interface orderState {
-  orders: Iorders[];
-  ordersError: string;
+import { Iparcel } from 'src/app/Interfaces/interfaces';
+import * as ParcelAction from '../actions/OrderActions';
+export interface parcelState {
+  parcels: Iparcel[];
+  parcelError: string;
   error: string;
   addMessage: string;
   DeleteMessage: string;
-  orderId: number;
-  loadingOrders: boolean;
+  parcelId: number;
+  loadingParcels: boolean;
 }
-const initialState: orderState = {
-  orders: [],
-  ordersError: '',
+const initialState: parcelState = {
+  parcels: [],
+  parcelError: '',
   error: '',
   addMessage: '',
   DeleteMessage: '',
-  orderId: 0,
-  loadingOrders: false,
+  parcelId: 0,
+  loadingParcels: false,
 };
-const productFeatureState = createFeatureSelector<orderState>('order');
+const productFeatureState = createFeatureSelector<parcelState>('order');
 export const getOrders = createSelector(
   productFeatureState,
-  (state) => state.orders
+  (state) => state.parcels
 );
-export const getOderById = createSelector(
+export const getParcelById = createSelector(
   productFeatureState,
-  (state) => state.orderId
+  (state) => state.parcelId
 );
-export const getOrder = createSelector(
+export const getParcel = createSelector(
   productFeatureState,
-  getOderById,
-  (state, id) => state.orders.find((order) => order.id == id)
+  getParcelById,
+  (state, id) => state.parcels.find((parcel) => parcel.id == id)
 );
 export const OrderReducer = createReducer(
   initialState,
-  on(OrdersAction.LoadOrders, (state, action): orderState => {
-    return { ...state, loadingOrders: true };
+  on(ParcelAction.loadParcels, (state, action): parcelState => {
+    return { ...state, loadingParcels: true };
   }),
-  on(OrdersAction.LoadOrdersSuccess, (state, action): orderState => {
-    return { ...state, loadingOrders: false, orders: action.orders };
+  on(ParcelAction.LoadParcelsSuccess, (state, action): parcelState => {
+    return { ...state, loadingParcels: false, parcels: action.parcels };
   }),
-  on(OrdersAction.LoadOrdersFailure, (state): orderState => {
-    return { ...state, loadingOrders: false };
+  on(ParcelAction.LoadParcelsFailure, (state): parcelState => {
+    return { ...state, loadingParcels: false };
   }),
 
   //post
-  on(OrdersAction.AddOrder, (state): orderState => {
-    return { ...state, loadingOrders: true };
+  on(ParcelAction.AddParcel, (state): parcelState => {
+    return { ...state, loadingParcels: true };
   }),
-  on(OrdersAction.AddOrderSuccess, (state): orderState => {
-    return { ...state, loadingOrders: false };
+  on(ParcelAction.AddParcelSuccess, (state): parcelState => {
+    return { ...state, loadingParcels: false };
   }),
-  on(OrdersAction.AddOrderFailure, (state): orderState => {
-    return { ...state, loadingOrders: false };
+  on(ParcelAction.AddParcelFailure, (state): parcelState => {
+    return { ...state, loadingParcels: false };
   }),
 
   //delete order
 
-  on(OrdersAction.DeleteOrder, (state): orderState => {
-    return { ...state, loadingOrders: true };
+  on(ParcelAction.DeleteParcel, (state): parcelState => {
+    return { ...state, loadingParcels: true };
   }),
-  on(OrdersAction.DeleteOrderSuccess, (state): orderState => {
-    return { ...state, loadingOrders: false };
+  on(ParcelAction.DeleteParcelSuccess, (state): parcelState => {
+    return { ...state, loadingParcels: false };
   }),
-  on(OrdersAction.DeleteOrderFailure, (state): orderState => {
-    return { ...state, loadingOrders: false };
+  on(ParcelAction.DeleteParcelFailure, (state): parcelState => {
+    return { ...state, loadingParcels: false };
   })
 );

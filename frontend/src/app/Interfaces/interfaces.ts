@@ -1,26 +1,25 @@
-export interface Iorders {
-  id?: number;
-  address: string;
-  email: string;
-  Pname: string;
-  Uname: string;
-  password?: string;
-  weight: string;
-  price: string;
-  datetime: string;
-  role?: string;
-  destination: string;
-}
+// export interface Iorders {
+//   id?: number;
+//   address: string;
+//   email: string;
+//   Pname: string;
+//   Uname: string;
+//   password?: string;
+//   weight: string;
+//   price: string;
+//   datetime: string;
+//   destination: string;
+// }
 
 export interface Iparcel {
-  Pname: string;
-  Uname: string;
-  price?: number;
-  id?: number;
+  pname: string;
+  uname: string;
+  price: number;
+  id: number;
   weight: number;
   email: string;
   address: string;
-  date: string;
+  datetime: string;
   destination: string;
 }
 export interface Iregister {
@@ -49,6 +48,11 @@ export interface Iuser {
 export interface userInfo {
   email: string;
   password: string;
+}
+
+export interface IUserResponse {
+  users: Iuser[];
+  success: string;
 }
 
 //

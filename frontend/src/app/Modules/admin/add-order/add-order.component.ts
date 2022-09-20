@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Iorders } from 'src/app/Interfaces/interfaces';
+import { Iparcel } from 'src/app/Interfaces/interfaces';
 import { OrderServiceService } from 'src/app/Services/order-service.service';
 
 import { Router } from '@angular/router';
 import { getOrders } from 'src/app/Redux/reducers/OrderReducers';
-import * as OrderActions from '../../../Redux/actions/OrderActions';
+import * as ParcelAction from '../../../Redux/actions/OrderActions';
 
 @Component({
   selector: 'app-add-order',
@@ -28,6 +28,7 @@ export class AddOrderComponent implements OnInit {
       Uname: ['', [Validators.required]],
       Pname: ['', [Validators.required]],
       weight: ['', [Validators.required]],
+      price: ['', [Validators.required]],
       address: ['', [Validators.required]],
       destination: ['', [Validators.required]],
       datetime: ['', [Validators.required]],
@@ -42,7 +43,7 @@ export class AddOrderComponent implements OnInit {
     this.submitted = true;
     if (this.addForm.valid) {
       this.store.dispatch(
-        OrderActions.AddOrder({ newOrder: this.addForm.value })
+        ParcelAction.AddParcel({ newParcel: this.addForm.value })
       );
     }
 

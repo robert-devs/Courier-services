@@ -69,9 +69,10 @@ export const getAllParcels = async(req:Request,res:Response)=>{
    try {
       
        const pool= await mssql.connect(sqlConfig)
-       const orders = await pool.request().execute('getAllParcels')
-        const{recordset} = orders
-       res.json({parcels: recordset})
+       let orders = await (await pool.request().execute('getAllParcels')).recordset
+         const parcels = orders
+        
+       res.json(parcels)
     } catch (error:any) {
         res.json({error})
         

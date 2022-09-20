@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 // import { Actions } from '@ngrx/effects';
-import { Iorders } from 'src/app/Interfaces/interfaces';
+import { Iparcel } from 'src/app/Interfaces/interfaces';
 import { OrderServiceService } from 'src/app/Services/order-service.service';
 import { getOrders } from 'src/app/Redux/reducers/OrderReducers';
 import * as OrderActions from '../../../Redux/actions/OrderActions';
@@ -14,10 +14,10 @@ import * as OrderActions from '../../../Redux/actions/OrderActions';
 })
 export class ViewOrdersComponent implements OnInit {
   parcels$ = this.store.select(getOrders);
-  parcels: Iorders[] = [];
-  newParcel: Iorders[] = [];
+  parcels: Iparcel[] = [];
+  newParcel: Iparcel[] = [];
   filterText: string = '';
-  filteredOrders: Iorders[] = [];
+  filteredOrders: Iparcel[] = [];
   private _listFiter: string = '';
   checked: any;
 
@@ -40,7 +40,7 @@ export class ViewOrdersComponent implements OnInit {
   performFilter(filterBy: string) {
     filterBy = filterBy.toLocaleLowerCase();
     return this.parcels.filter((parcel) =>
-      parcel.Pname.toLocaleLowerCase().includes(filterBy)
+      parcel.pname.toLocaleLowerCase().includes(filterBy)
     );
   }
 
@@ -58,7 +58,7 @@ export class ViewOrdersComponent implements OnInit {
 
     this.store.dispatch(OrderActions.loadParcels());
   }
-  createParcel(newParcel: Iorders) {
+  createParcel(newParcel: Iparcel) {
     return this.store.dispatch(OrderActions.AddParcel({ newParcel }));
   }
   deleteParcel(id: number = 0) {

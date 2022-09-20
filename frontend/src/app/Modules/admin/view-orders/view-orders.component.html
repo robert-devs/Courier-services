@@ -14,22 +14,20 @@
       <th>Uname</th>
       <th>Pname</th>
       <th>weight</th>
-      <th>address</th>
-      <th>weight</th>
       <th>destination</th>
       <th>price</th>
-      <th>date</th>
+      <th>datetime</th>
       <th></th>
       <th></th>
     </tr>
     <ng-container *ngIf="parcels$ | async as parcels">
       <tr *ngFor="let parcel of parcels | search: filterText">
         <!-- <td>{{ order.id }}</td> -->
-        <td>{{ parcel.Uname }}</td>
-        <td>{{ parcel.Pname }}</td>
+        <td>{{ parcel.uname }}</td>
+        <td>{{ parcel.pname }}</td>
         <td>{{ parcel.weight }}</td>
-        <td>{{ parcel.address }}</td>
         <td>{{ parcel.destination }}</td>
+        <td>{{ parcel.price }}</td>
         <td>{{ parcel.datetime }}</td>
         <td>
           <input type="checkbox" class="udates" (click)="status(parcel.id)" />
