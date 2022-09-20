@@ -28,14 +28,14 @@ export class OrderServiceService {
   }
 
   getParcels(): Observable<Iparcel[]> {
-    console.log('parcels');
     return this.http.get<Iparcel[]>(`${this.baseUrl}/parcels`);
   }
-  getParcelDetails(id: number): Observable<Iparcel[]> {
+  getParcelDetails(id: string): Observable<Iparcel[]> {
     return this.http.get<Iparcel[]>(`${this.baseUrl}/parcels/${id}`);
   }
 
-  deleteParcel(id: number = 0): Observable<{ message: string }> {
+  deleteParcel(id: string): Observable<{ message: string }> {
+    console.log(id);
     return this.http.delete<{ message: string }>(
       `${this.baseUrl}/parcels/${id}`
     );
@@ -45,5 +45,9 @@ export class OrderServiceService {
       `${this.baseUrl}/parcels`,
       parcel
     );
+  }
+  deleteUser(id: string): Observable<{ message: string }> {
+    console.log(id);
+    return this.http.delete<{ message: string }>(`${this.baseUrl}/users/${id}`);
   }
 }

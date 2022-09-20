@@ -15,8 +15,9 @@ export interface Iparcel {
   pname: string;
   uname: string;
   price: number;
-  id: number;
+  parcelId: string;
   weight: number;
+  status: string;
   email: string;
   address: string;
   datetime: string;
@@ -35,7 +36,7 @@ export interface Ilogin {
   password: string;
 }
 export interface Iuser {
-  id?: string;
+  id: string;
   name: string;
   email: string;
   role: string;
@@ -52,6 +53,10 @@ export interface userInfo {
 
 export interface IUserResponse {
   users: Iuser[];
+  success: string;
+}
+export interface IParcelRes {
+  parcels: Iparcel[];
   success: string;
 }
 

@@ -30,10 +30,10 @@ export const registerUser = createAction(
   }>()
 );
 export const registerUserSuccess = createAction(
-  '[Auth] Login User Success',
+  '[Auth] regsterUserSuccess',
   props<{ user: Iuser }>()
 );
 export const registerUserFailure = createAction(
-  '[Auth] Login User Success',
-  props<{ user: Iuser }>()
+  '[Auth] register User Success',
+  props<{ error: string }>()
 );

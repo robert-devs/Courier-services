@@ -6,6 +6,7 @@ import { Iparcel } from 'src/app/Interfaces/interfaces';
 import { OrderServiceService } from 'src/app/Services/order-service.service';
 import { getOrders } from 'src/app/Redux/reducers/OrderReducers';
 import * as OrderActions from '../../../Redux/actions/OrderActions';
+import { AnyFn } from '@ngrx/store/src/selector';
 
 @Component({
   selector: 'app-view-orders',
@@ -61,11 +62,23 @@ export class ViewOrdersComponent implements OnInit {
   createParcel(newParcel: Iparcel) {
     return this.store.dispatch(OrderActions.AddParcel({ newParcel }));
   }
-  deleteParcel(id: number = 0) {
+  // deleteParcel(id: string) {
+  //   this.pacelService.getParcels().subscribe({
+  //     next: (data) => {
+  //       this.parcels = data;
+  //     },
+
+  //     error: (error) => console.log(error),
+
+  //     complete: () => console.log('Complete loading users'),
+  //   });
+  // }
+
+  deleteParcel(id: string) {
     this.store.dispatch(OrderActions.DeleteParcel({ id }));
-    this.store.dispatch(OrderActions.loadParcels());
   }
-  status(id: number = 0) {
+
+  status(id: any) {
     if (this.checked === OrderActions.SelectedId) {
       this.store.dispatch(OrderActions.SelectedId({ id }));
       console.log(id);

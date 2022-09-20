@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { map, of, throwError } from 'rxjs';
+import { catchError, map, of, throwError } from 'rxjs';
 import { Iregister, Iuser, userInfo } from '../Interfaces/interfaces';
 
 @Injectable({
@@ -9,26 +9,33 @@ import { Iregister, Iuser, userInfo } from '../Interfaces/interfaces';
 })
 export class AuthServiceService {
   // isLogedIn: boolean = false;
-  private baseUrl = 'http://localhost:3000';
+  private baseUrl = 'http://localhost:8000';
 
   constructor(private http: HttpClient, private router: Router) {}
 
-  loginUser(details: userInfo) {
+  loginUser(user: { email: string; password: string }) {
+    return this.http.post(`${this.baseUrl}/users/login`, user).pipe(
+      map((res: any) => {
+        console.log({ res });
+
+        return res.user;
+      }),
+      catchError((error: any) => {
+        return throwError(() => new Error(error.error.message));
+      })
+    );
+  }
+  registerUser(user: Iregister) {
     return this.http
-      .get<Iuser[]>(
-        `${this.baseUrl}/users?email=${details.email}&password=${details.password}`
-      )
+      .post<Iregister[]>(`${this.baseUrl}/users/register`, user)
       .pipe(
-        map((res: Iuser[]) => {
-          if (res.length <= 0) {
-            throw Error('Invalid Credentials');
-          }
-          return res[0];
+        map((res: any) => {
+          return res.user;
+        }),
+        catchError((error: any) => {
+          return throwError(() => new Error(error.error.message));
         })
       );
-  }
-  registerUser(details: Iregister) {
-    return this.http.post<Iregister[]>;
   }
 
   isLogedIn() {

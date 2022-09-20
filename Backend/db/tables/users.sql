@@ -20,3 +20,6 @@ drop table users
 
 select *
 from users
+
+UPDATE dbo.users
+SET role='Admin' WHERE id='8ff297e6-9029-445a-89e9-3f7914e151ee'

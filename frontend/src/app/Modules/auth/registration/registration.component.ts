@@ -4,6 +4,7 @@ import {
   FormBuilder,
   FormControl,
   FormGroup,
+  NgForm,
   Validators,
 } from '@angular/forms';
 import { Store } from '@ngrx/store';
@@ -16,28 +17,33 @@ import * as AuthActions from 'src/app/state/auth.actions';
 })
 export class RegistrationComponent implements OnInit {
   form!: FormGroup;
-  constructor(private FB: FormBuilder, private store: Store) {}
+
+  constructor(private fb: FormBuilder, private store: Store) {}
+
   allowedEmails = ['@'];
-  pattern = [Validators.pattern('^[A-Za-z0-9._%+-]+@thejitu.com$')];
+
+  // pattern = [Validators.pattern('^[A-Za-z0-9._%+-]+@thejitu.com$')];
   ngOnInit(): void {
-    this.form = this.FB.group({
-      name: [null, [Validators.required]],
-      address: [null, [Validators.required]],
+    this.form = this.fb.group({
+      name: ['', [Validators.required]],
+      address: ['', [Validators.required]],
       email: [
-        null,
+        '',
         [Validators.required, Validators.email],
         this.checkEmails.bind(this) as AsyncValidatorFn,
       ],
-      password: [
-        null,
-        [Validators.required, Validators.pattern('^[A-Z0-9._%+-]')],
-      ],
-      phone: [null, [Validators.required, Validators]],
+      password: ['', [Validators.required, Validators.min(8)]],
+      phone: ['', [Validators.required]],
     });
   }
+
   onSubmit() {
-    // this.store.dispatch(AuthActions.loginUser())
+    if (this.form.valid)
+      this.store.dispatch(
+        AuthActions.registerUser({ details: this.form.value })
+      );
   }
+
   checkEmails(control: FormControl): Promise<{ [s: string]: boolean } | null> {
     const promise = new Promise<{ [s: string]: boolean } | null>(
       (resolve, reject) => {
@@ -51,9 +57,4 @@ export class RegistrationComponent implements OnInit {
     );
     return promise;
   }
-  // checkPassword(control: FormControl) {
-  //   const value = control.value;
-  //   const special = /[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~"]+/.test(value);
-  //   return !special ? { special: true } : null;
-  // }
 }

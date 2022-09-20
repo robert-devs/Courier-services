@@ -22,7 +22,7 @@ export class AuthEffects {
         this.authService.loginUser(action.details).pipe(
           tap((res) => {
             localStorage.setItem('user', JSON.stringify(res));
-            if (res.role === 'admin') {
+            if (res.role === 'Admin') {
               this.router.navigate(['/admin']);
             } else {
               this.router.navigate(['/user']);
@@ -42,7 +42,7 @@ export class AuthEffects {
     return this.action$.pipe(
       ofType(AuthActions.registerUser),
       mergeMap((action) =>
-        this.authService.loginUser(action.details).pipe(
+        this.authService.registerUser(action.details).pipe(
           tap((res) => {
             localStorage.setItem('user', JSON.stringify(res));
             if (res.role === 'admin') {
@@ -51,9 +51,9 @@ export class AuthEffects {
               this.router.navigate(['/user']);
             }
           }),
-          map((user) => AuthActions.loginUserSuccess({ user })),
+          map((user) => AuthActions.registerUserSuccess({ user })),
           catchError((error) =>
-            of(AuthActions.loginUserFailure({ error: error.message }))
+            of(AuthActions.registerUserFailure({ error: error.message }))
           )
         )
       )

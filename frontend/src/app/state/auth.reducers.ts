@@ -61,7 +61,7 @@ export const regiState = createReducer<AuthState>(
     return {
       ...state,
       loading: false,
-      user: action.user,
+      error: action.error,
     };
   })
 );

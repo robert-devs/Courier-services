@@ -11,29 +11,42 @@
   </div>
   <table>
     <tr>
+      <th>parcelId</th>
       <th>Uname</th>
       <th>Pname</th>
       <th>weight</th>
       <th>destination</th>
       <th>price</th>
+      <th>status</th>
       <th>datetime</th>
       <th></th>
       <th></th>
     </tr>
     <ng-container *ngIf="parcels$ | async as parcels">
+      <!-- {{ parcels$ }} -->
       <tr *ngFor="let parcel of parcels | search: filterText">
         <!-- <td>{{ order.id }}</td> -->
+        <td>
+          {{ parcel.parcelId.substring(0, 4) }}...{{
+            parcel.parcelId.split("").splice(-4).join("")
+          }}
+        </td>
         <td>{{ parcel.uname }}</td>
         <td>{{ parcel.pname }}</td>
         <td>{{ parcel.weight }}</td>
         <td>{{ parcel.destination }}</td>
         <td>{{ parcel.price }}</td>
+        <td>{{ parcel.status }}</td>
         <td>{{ parcel.datetime }}</td>
         <td>
-          <input type="checkbox" class="udates" (click)="status(parcel.id)" />
+          <input
+            type="checkbox"
+            class="updates"
+            (click)="status(parcel.parcelId)"
+          />
         </td>
         <td>
-          <button (click)="deleteParcel(parcel.id)" class="delete">
+          <button (click)="deleteParcel(parcel.parcelId)" class="delete">
             Delete
           </button>
         </td>

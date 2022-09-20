@@ -13,7 +13,7 @@ export interface parcelState {
   error: string;
   addMessage: string;
   DeleteMessage: string;
-  parcelId: number;
+  parcelId: string;
   loadingParcels: boolean;
 }
 const initialState: parcelState = {
@@ -22,7 +22,7 @@ const initialState: parcelState = {
   error: '',
   addMessage: '',
   DeleteMessage: '',
-  parcelId: 0,
+  parcelId: '',
   loadingParcels: false,
 };
 const productFeatureState = createFeatureSelector<parcelState>('order');
@@ -37,7 +37,7 @@ export const getParcelById = createSelector(
 export const getParcel = createSelector(
   productFeatureState,
   getParcelById,
-  (state, id) => state.parcels.find((parcel) => parcel.id == id)
+  (state, id) => state.parcels.find((parcel) => parcel.parcelId == id)
 );
 export const OrderReducer = createReducer(
   initialState,

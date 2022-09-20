@@ -54,8 +54,7 @@ export class EffectsService {
       mergeMap((action) =>
         this.orderService.deleteParcel(action.id).pipe(
           tap((res) => {
-            // this.store.dispatch(OrderActions.SelectedId({ id: 0 }));
-            this.router.navigate(['/admin/view-order']);
+            this.store.dispatch(OrderActions.loadParcels());
           }),
           map((res) =>
             OrderActions.DeleteParcelSuccess({ deletemessage: res.message })

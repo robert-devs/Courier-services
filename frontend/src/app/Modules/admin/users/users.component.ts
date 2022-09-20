@@ -17,7 +17,11 @@ export class UsersComponent implements OnInit {
     // this.fetchUser;
     this.fetchUser();
   }
-  deleteUser(id: string = '1') {}
+  // deleteUser(id: string) {
+  //   this.orderService.deleteUser(id).subscribe({
+  //     next:
+  //   });
+  // }
 
   fetchUser() {
     this.orderService.getUsers().subscribe({

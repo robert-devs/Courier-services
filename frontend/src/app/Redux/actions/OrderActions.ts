@@ -1,7 +1,7 @@
 import { createAction, props } from '@ngrx/store';
 import { Iparcel } from 'src/app/Interfaces/interfaces';
 
-export const SelectedId = createAction('SelectedId', props<{ id: number }>());
+export const SelectedId = createAction('SelectedId', props<{ id: string }>());
 
 export const loadParcels = createAction('loadParcels');
 export const LoadParcelsSuccess = createAction(
@@ -14,8 +14,8 @@ export const LoadParcelsFailure = createAction(
 );
 
 export const DeleteParcel = createAction(
-  'DeleteOrder',
-  props<{ id: number }>()
+  'DeleteParcel',
+  props<{ id: string }>()
 );
 export const DeleteParcelSuccess = createAction(
   'DeleteParcelSuccess',
