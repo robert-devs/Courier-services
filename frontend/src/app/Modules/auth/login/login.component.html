@@ -1,0 +1,87 @@
+<div class="container">
+  <div class="card">
+    <div class="image">
+      <img
+        src="https://media.istockphoto.com/photos/woman-customer-opening-cardboard-box-parcel-picture-id1330959502?k=20&m=1330959502&s=612x612&w=0&h=D8_r-66q0WIIO8t6B1DPiLk7Lz9JHcA5ONR7pudktvE="
+        alt=""
+      />
+    </div>
+    <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+      <h3>Login</h3>
+      <p style="text-align: center">Please fill in the field below</p>
+      <p
+        style="
+          text-align: center;
+          background: rgba(255, 0, 0, 0.5);
+          color: red;
+          padding: 5px 0px;
+        "
+        *ngIf="errorMessage$ | async as errorMessage"
+      >
+        {{ errorMessage }}
+      </p>
+      <div class="form-group">
+        <label for="email">email*</label>
+        <input
+          [(ngModel)]="loginDetails.email"
+          type="email"
+          placeholder="email"
+          required="email"
+          name="email"
+          class="form-control"
+          #email="ngModel"
+        />
+        <p
+          class="error"
+          *ngIf="!email.valid && (form.submitted || email.touched)"
+        >
+          *Please enter valid email!!
+        </p>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password*</label>
+        <input
+          [(ngModel)]="loginDetails.password"
+          #password="ngModel"
+          ngModel
+          name="password"
+          type="password"
+          required
+        />
+        <p
+          class="error"
+          *ngIf="!password.valid && (form.submitted || password.touched)"
+        >
+          *Please enter
+        </p>
+      </div>
+      <button class="btn btn-primary" type="submit">login</button>
+    </form>
+  </div>
+</div>
+
+<!-- <div class="form-group">
+          <label for="email">email*</label>
+          <input
+            ngModel
+            type="email"
+            placeholder="email"
+            required="email"
+            #username="ngModel"
+            name="email"
+            class="form-control"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password*</label>
+          <input
+            #password="ngModel"
+            ngModel
+            name="password"
+            type="password"
+            required
+            class="form-control"
+          />
+        </div> -->

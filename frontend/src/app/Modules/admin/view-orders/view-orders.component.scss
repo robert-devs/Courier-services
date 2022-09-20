@@ -1,0 +1,43 @@
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  align-self: flex-start;
+  width: 50%;
+  align-self: auto;
+}
+th {
+  color: rgb(255, 0, 153);
+  padding: 10px;
+}
+td {
+  // border: 1px solid #dddddd;
+  text-align: left;
+  padding: 10px;
+}
+
+tr:nth-child(even) {
+  // background-color: #dddddd;
+}
+.udates {
+  background-color: yellow;
+  padding: 10px 15px;
+  border: none;
+  outline: none;
+  color: rgb(255, 0, 225);
+  border-radius: 10px;
+}
+.delete {
+  background-color: red;
+  padding: 10px 15px;
+  border: none;
+  outline: none;
+  color: white;
+  border-radius: 10px;
+}
+.search input {
+  margin: 10px;
+  background-color: rgb(210, 220, 220);
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+}

@@ -1,0 +1,64 @@
+<div class="card">
+  <div class="image">
+    <img
+      src="https://images.unsplash.com/photo-1543499459-d1460946bdc6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fGRlbGl2ZXJ5fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+      alt=""
+    />
+  </div>
+  <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <h1>Sign Up</h1>
+    <p style="text-align: center">Please fill in the field below</p>
+    <div class="formControl">
+      <label> Name*</label>
+      <input type="text" name="name" formControlName="name" />
+    </div>
+
+    <div class="formControl">
+      <label> email*</label>
+      <input type="text" name="username" formControlName="email" />
+      <div *ngIf="!form.get('email')!.valid && form.get('email')!.touched">
+        <p class="error" *ngIf="form.get('email')!.errors!['required']">
+          please enter a email
+        </p>
+        <p class="error" *ngIf="form.get('email')!.errors!['unallowedEmails']">
+          unallowedemail email
+        </p>
+      </div>
+    </div>
+
+    <div class="formControl">
+      <label> Password*</label>
+      <input type="text" formControlName="password" />
+      <div
+        *ngIf="!form.get('password')!.valid && form.get('password')!; touched"
+      >
+        <!-- <p class="error" *ngIf="form.get('password')!.errors!['special']">
+          *password special character is required.
+        </p> -->
+      </div>
+    </div>
+
+    <div class="formControl">
+      <label> Phone*</label>
+      <input type="text" name="email" formControlName="phone" />
+      <div *ngIf="!form.get('phone')!.valid && form.get('phone')!.touched">
+        <p class="error" *ngIf="form.get('email')!.errors!['required']">
+          please enter a phone
+        </p>
+        >
+      </div>
+    </div>
+
+    <div class="formControl">
+      <label> address*</label>
+      <input type="text" name="text" formControlName="address" />
+      <div *ngIf="!form.get('address')!.valid && form.get('address')!.touched">
+        <p class="error" *ngIf="form.get('email')!.errors!['required']">
+          please enter a address
+        </p>
+      </div>
+    </div>
+
+    <button id="register" type="submit">Register</button>
+  </form>
+</div>

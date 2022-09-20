@@ -1,0 +1,25 @@
+
+
+POST http://localhost:8000/users/register
+Content-Type: application/json
+
+
+{
+
+  "address":"kiambu",
+  "email":"mainrobert@gmail.com",
+  "name":"ivan karanja",
+  "password":"12345678",
+  "phone":"0700987674"
+}
+
+
+####
+//get all users
+
+GET  http://localhost:5000/users
+
+###
+
+//getOneUser
+GET http://localhost:8000/users/2831c1b4-122c-46c8-b67d-27f24090f8e7

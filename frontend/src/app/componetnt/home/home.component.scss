@@ -1,0 +1,139 @@
+.container {
+  background: url("https://images.unsplash.com/photo-1548695607-9c73430ba065?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80");
+  background-size: cover;
+  height: 90vh;
+  position: relative;
+}
+
+.blurred {
+  background-color: rgba($color: #000000, $alpha: 0.7);
+  height: 100%;
+  // position: absolute;
+  // right: 0;
+  // left: 0;
+  // top: 0;
+  // bottom: 0;
+}
+.card {
+  align-content: center;
+  justify-content: center;
+  position: absolute;
+  background-color: aliceblue;
+  width: 280px;
+  height: 230px;
+  // padding: 30px;
+  bottom: 100px;
+  right: 80px;
+  border: 2px black;
+  border-radius: 10px;
+}
+.card p {
+  text-align: center;
+  align-content: center;
+  padding-top: 10px;
+}
+button {
+  justify-content: center;
+  align-items: center;
+  // background-color: red;
+  padding: 10px 15px;
+  border-radius: 10px;
+  width: 50%;
+  margin-top: 20px;
+  margin-left: 50px;
+}
+input.ng-invalid.ng-touched,
+.textarea.ng-invalid .ng-touched,
+select.ng-invalid.ng-touched {
+  border-left: 6px solid red;
+}
+
+input.ng-valid.ng-touched,
+.textarea.ng-valid .ng-touched,
+select.ng-valid.ng-touched {
+  border-left: 6px solid rgb(69, 4, 246);
+}
+
+//Services
+
+.services {
+  display: flex;
+  margin-top: 40px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.top {
+  text-align: center;
+  // padding: 10px;
+}
+.service-main {
+  display: flex;
+  gap: 40px;
+  height: 50vh;
+}
+.food-D,
+.pets-D,
+.materials-D {
+  // background-color: aquamarine;
+  width: 300px;
+  height: 350px;
+  padding: 20px;
+
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.1);
+}
+.food-D img {
+  width: 150px;
+  height: 150pxpx;
+  align-items: center;
+}
+.pets-D img {
+  width: 150px;
+  height: 150px;
+  align-items: center;
+}
+.materials-D img {
+  width: 150px;
+  height: 150px;
+  align-items: center;
+}
+.footer-top {
+  margin-top: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+  gap: 40px;
+}
+
+.footer-top p {
+  text-align: left;
+  margin: 10px;
+}
+
+.class-5 i {
+  color: #23a6f0;
+}
+
+.footer-bottom {
+  display: flex;
+  text-align: center;
+  justify-content: space-around;
+  background-color: rgb(249, 250, 250);
+  flex-wrap: wrap;
+  /* gap: 250px; */
+}
+
+.footer-bottom p {
+  text-align: left;
+  padding: 10px;
+}
+
+.footer-bottom-right {
+  padding: 10px;
+  color: #23a6f0;
+}

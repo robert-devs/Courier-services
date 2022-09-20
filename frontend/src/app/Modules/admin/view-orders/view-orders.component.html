@@ -1,0 +1,45 @@
+<div>
+  <h1>parcels...</h1>
+  <div class="search">
+    <input
+      class="filter"
+      type="text"
+      [(ngModel)]="filterText"
+      placeholder="Search ..."
+    />
+    <!-- <p>{{ listFilter }}</p> -->
+  </div>
+  <table>
+    <tr>
+      <th>Uname</th>
+      <th>Pname</th>
+      <th>weight</th>
+      <th>address</th>
+      <th>weight</th>
+      <th>destination</th>
+      <th>price</th>
+      <th>date</th>
+      <th></th>
+      <th></th>
+    </tr>
+    <ng-container *ngIf="parcels$ | async as parcels">
+      <tr *ngFor="let parcel of parcels | search: filterText">
+        <!-- <td>{{ order.id }}</td> -->
+        <td>{{ parcel.Uname }}</td>
+        <td>{{ parcel.Pname }}</td>
+        <td>{{ parcel.weight }}</td>
+        <td>{{ parcel.address }}</td>
+        <td>{{ parcel.destination }}</td>
+        <td>{{ parcel.datetime }}</td>
+        <td>
+          <input type="checkbox" class="udates" (click)="status(parcel.id)" />
+        </td>
+        <td>
+          <button (click)="deleteParcel(parcel.id)" class="delete">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </ng-container>
+  </table>
+</div>

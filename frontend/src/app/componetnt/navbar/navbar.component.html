@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="navbar">
+    <div class="logo">
+      <h3>SendIT <fa-icon [icon]="faTruck"></fa-icon></h3>
+    </div>
+    <div class="right">
+      <ul class="list">
+        <li><a routerLink="/">Home</a></li>
+        <li>
+          <a routerLink="/auth/Login" *ngIf="!authService.isLogedIn()">Login</a>
+        </li>
+        <!-- <li><a routerLink="/auth/registration">Sign Up</a></li> -->
+        <li><a routerLink="/service">About Us </a></li>
+        <li>
+          <a (click)="authService.logout()" *ngIf="authService.isLogedIn()"
+            >Logout</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

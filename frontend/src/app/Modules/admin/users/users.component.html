@@ -1,0 +1,28 @@
+<div>
+  <table>
+    <h1>Users...</h1>
+
+    <tr>
+      <th>Id</th>
+      <th>name</th>
+      <th>email</th>
+      <th>addres</th>
+      <th>role</th>
+      <th>welcome</th>
+      <th></th>
+      <th></th>
+    </tr>
+    <tr *ngFor="let user of users">
+      <td>{{ user }}</td>
+      <td>{{ user }}</td>
+      <td>{{ user }}</td>
+      <td>{{ user }}</td>
+      <td>{{ user }}</td>
+      <td>{{ user }}</td>
+      <td><input type="checkbox" class="udates" /></td>
+      <td>
+        <!-- <button (click)="deleteUser(user.id)" class="delete">Delete</button> -->
+      </td>
+    </tr>
+  </table>
+</div>

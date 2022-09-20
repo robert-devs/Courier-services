@@ -1,0 +1,100 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "user 1",
+      "role": "admin",
+      "email": "robert1234_254@yopmail.com",
+      "password": "12345678"
+    },
+    {
+      "id": 2,
+      "name": "maina 2",
+      "role": "user",
+      "email": "maina1234_254@yopmail.com",
+      "password": "12345678"
+    },
+    {
+      "id": 3,
+      "name": "edwin 3",
+      "role": "user",
+      "email": "edwin3@gmail.com",
+      "password": "12345678"
+    },
+    {
+      "name": "clara",
+      "role": "user",
+      "email": "clara@gmail.com",
+      "password": "12345678",
+      "id": 4
+    },
+    {
+      "name": "d1eqfewww",
+      "role": "user",
+      "email": "sa@gmail.com",
+      "password": "Password@1",
+      "id": 5
+    },
+    {
+      "name": "sazdnnnjjjbb",
+      "role": "user",
+      "email": "hhjjjd@gmail.com",
+      "password": "Passsword@1",
+      "id": 6
+    },
+    {
+      "name": "bkjhg",
+      "role": "user",
+      "email": "juhgh@gmail.com",
+      "password": "Password@1",
+      "id": 7
+    }
+  ],
+  "orders": [
+    {
+      "id": 1,
+      "Uname": "clara",
+      "Pname": "latop",
+      "weight": "1.2kg",
+      "address": "muranga",
+      "destination": "muranga",
+      "datetime": "20-09-22"
+    },
+    {
+      "id": 2,
+      "Uname": "robert",
+      "Pname": "desktop",
+      "weight": "4.2kg",
+      "address": "skota",
+      "destination": "nyeri",
+      "datetime": "20-09-26"
+    },
+    {
+      "id": 3,
+      "Uname": "deniis",
+      "Pname": "shoes",
+      "weight": "1.2kg",
+      "address": "mombasa",
+      "destination": "muranga",
+      "datetime": "20-09-20"
+    },
+    {
+      "Uname": "jona",
+      "Pname": "monitors",
+      "weight": "2kg",
+      "address": "thika",
+      "destination": "nyeri",
+      "datetime": "2022-09-28",
+      "id": 5
+    },
+    {
+      "Uname": "daniel",
+      "Pname": "car",
+      "weight": "450kg",
+      "address": "nanyuki",
+      "destination": "nairobi/45s",
+      "datetime": "2022-09-17",
+      "id": 6
+    }
+  ]
+}
