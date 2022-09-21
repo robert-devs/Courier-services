@@ -6,7 +6,7 @@ import {
   on,
 } from '@ngrx/store';
 import { Iparcel } from 'src/app/Interfaces/interfaces';
-import * as ParcelAction from '../actions/OrderActions';
+import * as ParcelAction from '../actions/ParcelsActions';
 export interface parcelState {
   parcels: Iparcel[];
   parcelError: string;
@@ -34,6 +34,11 @@ export const getParcelById = createSelector(
   productFeatureState,
   (state) => state.parcelId
 );
+export const getParcels = createSelector(
+  productFeatureState,
+  (state) => state.parcels
+);
+
 export const getParcel = createSelector(
   productFeatureState,
   getParcelById,
@@ -48,6 +53,17 @@ export const OrderReducer = createReducer(
     return { ...state, loadingParcels: false, parcels: action.parcels };
   }),
   on(ParcelAction.LoadParcelsFailure, (state): parcelState => {
+    return { ...state, loadingParcels: false };
+  }),
+
+  // Load parcels of a user
+  on(ParcelAction.loadUserParcels, (state, action): parcelState => {
+    return { ...state, loadingParcels: true, parcels: [] };
+  }),
+  on(ParcelAction.loadUserParcelsSuccess, (state, action): parcelState => {
+    return { ...state, loadingParcels: false, parcels: action.parcels };
+  }),
+  on(ParcelAction.loadUserParcelsFailure, (state): parcelState => {
     return { ...state, loadingParcels: false };
   }),
 

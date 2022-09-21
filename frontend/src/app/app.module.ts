@@ -13,7 +13,7 @@ import { GoogleMapsModule } from '@angular/google-maps';
 import { SharedModule } from './shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
-import { OrderReducer } from 'src/app/Redux/reducers/OrderReducers';
+import { OrderReducer } from 'src/app/Redux/reducers/ParcelReducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { environment } from 'src/environments/environment';

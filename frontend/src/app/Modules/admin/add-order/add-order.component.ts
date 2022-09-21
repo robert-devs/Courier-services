@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Iparcel, Iuser } from 'src/app/Interfaces/interfaces';
-import { OrderServiceService } from 'src/app/Services/order-service.service';
+import { ParcelService } from 'src/app/Services/Parcel-service.service';
 
 import { Router } from '@angular/router';
-import { getOrders } from 'src/app/Redux/reducers/OrderReducers';
-import * as ParcelAction from '../../../Redux/actions/OrderActions';
+import { getOrders } from 'src/app/Redux/reducers/ParcelReducers';
+import * as ParcelAction from '../../../Redux/actions/ParcelsActions';
 
 @Component({
   selector: 'app-add-order',
@@ -22,7 +22,7 @@ export class AddOrderComponent implements OnInit {
     private fb: FormBuilder,
     private store: Store,
     private router: Router,
-    private orderService: OrderServiceService
+    private orderService: ParcelService
   ) {}
 
   ngOnInit(): void {

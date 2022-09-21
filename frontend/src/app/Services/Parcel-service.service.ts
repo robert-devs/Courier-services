@@ -1,12 +1,12 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { catchError, map, Observable, throwError } from 'rxjs';
 import { Iparcel, Iuser, IUserResponse } from '../Interfaces/interfaces';
 
 @Injectable({
   providedIn: 'root',
 })
-export class OrderServiceService {
+export class ParcelService {
   private baseUrl = 'http://localhost:8000';
   token = localStorage.getItem('token') as string;
 
@@ -30,8 +30,17 @@ export class OrderServiceService {
   getParcels(): Observable<Iparcel[]> {
     return this.http.get<Iparcel[]>(`${this.baseUrl}/parcels`);
   }
-  getParcelDetails(id: string): Observable<Iparcel[]> {
-    return this.http.get<Iparcel[]>(`${this.baseUrl}/parcels/${id}`);
+  getParcelByUserId(id: string): Observable<Iparcel[]> {
+    return this.http
+      .get<Iparcel[]>(`${this.baseUrl}/parcels/assigned/${id}`)
+      .pipe(
+        map((res: any) => {
+          return res.parcels;
+        }),
+        catchError((error: any) => {
+          return throwError(() => new Error(error.error.message));
+        })
+      );
   }
 
   deleteParcel(id: string): Observable<{ message: string }> {

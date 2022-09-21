@@ -13,6 +13,19 @@ export const LoadParcelsFailure = createAction(
   props<{ error: string }>()
 );
 
+export const loadUserParcels = createAction(
+  '[Parcel] Load User Parcels',
+  props<{ userId: string }>()
+);
+export const loadUserParcelsSuccess = createAction(
+  '[Parcel] Load User Parcels Success',
+  props<{ parcels: Iparcel[] }>()
+);
+export const loadUserParcelsFailure = createAction(
+  '[Parcel] Load User Parcels Failure',
+  props<{ error: string }>()
+);
+
 export const DeleteParcel = createAction(
   'DeleteParcel',
   props<{ id: string }>()

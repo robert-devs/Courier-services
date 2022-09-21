@@ -3,8 +3,8 @@ import { Router } from '@angular/router';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
 import { catchError, concat, concatMap, map, mergeMap, of, tap } from 'rxjs';
-import { OrderServiceService } from 'src/app/Services/order-service.service';
-import * as OrderActions from '../actions/OrderActions';
+import { ParcelService } from 'src/app/Services/Parcel-service.service';
+import * as OrderActions from '../actions/ParcelsActions';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +12,7 @@ import * as OrderActions from '../actions/OrderActions';
 export class EffectsService {
   constructor(
     private actions: Actions,
-    private orderService: OrderServiceService,
+    private orderService: ParcelService,
     private store: Store,
     private router: Router
   ) {}
@@ -29,6 +29,21 @@ export class EffectsService {
       )
     );
   });
+
+  loadUserParcels = createEffect(() => {
+    return this.actions.pipe(
+      ofType(OrderActions.loadUserParcels),
+      concatMap(({ userId }) =>
+        this.orderService.getParcelByUserId(userId).pipe(
+          map((res) => OrderActions.loadUserParcelsSuccess({ parcels: res })),
+          catchError((error) =>
+            of(OrderActions.loadUserParcelsFailure({ error: error }))
+          )
+        )
+      )
+    );
+  });
+
   addOrder = createEffect(() => {
     return this.actions.pipe(
       ofType(OrderActions.AddParcel),

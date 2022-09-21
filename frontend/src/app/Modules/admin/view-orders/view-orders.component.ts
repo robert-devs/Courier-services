@@ -3,9 +3,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 // import { Actions } from '@ngrx/effects';
 import { Iparcel } from 'src/app/Interfaces/interfaces';
-import { OrderServiceService } from 'src/app/Services/order-service.service';
-import { getOrders } from 'src/app/Redux/reducers/OrderReducers';
-import * as OrderActions from '../../../Redux/actions/OrderActions';
+import { ParcelService } from 'src/app/Services/Parcel-service.service';
+import { getOrders } from 'src/app/Redux/reducers/ParcelReducers';
+import * as OrderActions from '../../../Redux/actions/ParcelsActions';
 import { AnyFn } from '@ngrx/store/src/selector';
 
 @Component({
@@ -23,7 +23,7 @@ export class ViewOrdersComponent implements OnInit {
   checked: any;
 
   constructor(
-    private pacelService: OrderServiceService,
+    private pacelService: ParcelService,
     private store: Store<any>,
     private router: Router,
     private route: ActivatedRoute // private

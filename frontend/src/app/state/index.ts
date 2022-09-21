@@ -11,3 +11,8 @@ export const getAuthUser = createSelector(
   getAuthFeatureState,
   (state) => state.user
 );
+
+export const getAuthUserId = createSelector(
+  getAuthFeatureState,
+  (state) => state.user?.id
+);

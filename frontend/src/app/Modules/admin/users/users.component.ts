@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Iuser } from 'src/app/Interfaces/interfaces';
-import { OrderServiceService } from 'src/app/Services/order-service.service';
+import { ParcelService } from 'src/app/Services/Parcel-service.service';
 
 @Component({
   selector: 'app-users',
@@ -11,7 +11,7 @@ import { OrderServiceService } from 'src/app/Services/order-service.service';
 })
 export class UsersComponent implements OnInit {
   users: Iuser[] = [];
-  constructor(private orderService: OrderServiceService) {}
+  constructor(private orderService: ParcelService) {}
 
   ngOnInit(): void {
     // this.fetchUser;
