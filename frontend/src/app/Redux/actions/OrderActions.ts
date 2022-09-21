@@ -38,8 +38,3 @@ export const AddParcelFailure = createAction(
   'AddParcelFailure',
   props<{ error: string }>()
 );
-// export function LoadUsers(
-//   LoadUsers: any
-// ): import('rxjs').OperatorFunction<import('@ngrx/store').Action, any> {
-//   throw new Error('Function not implemented.');
-// }

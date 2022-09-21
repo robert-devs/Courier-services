@@ -31,7 +31,7 @@ export const createParcelController = async(req:ExtendsRequest,res:Response)=>{
         }
 
         const id = uid()
-        const {name,userId,destination,price,weight,address,datetime} = req.body
+        const {Uname,userId,destination,price,weight,address,datetime} = req.body
         
         // Ensure location is like  "lat, long" - separated by comma
         const dest = req.body.destination.split(",")
@@ -41,7 +41,7 @@ export const createParcelController = async(req:ExtendsRequest,res:Response)=>{
         
        await pool.request()
         .input('id',mssql.VarChar,id)
-        .input('name',mssql.VarChar,name)
+        .input('name',mssql.VarChar,Uname)
         .input('destination',mssql.VarChar,destination)
         .input('weight',mssql.VarChar,weight)
         .input('price',mssql.VarChar,price)

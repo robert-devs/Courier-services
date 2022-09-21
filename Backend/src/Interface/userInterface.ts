@@ -20,7 +20,7 @@ export interface ExtendedUserRequest extends Request{
 
 export    interface ExtendsRequest extends Request{
     body: {
-        name:string,
+        Uname:string,
         destination: string,
         userId: string,
         price:string

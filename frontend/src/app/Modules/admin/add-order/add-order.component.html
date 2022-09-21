@@ -15,7 +15,7 @@
       </span>
     </div>
 
-    <div class="form-group">
+    <!-- <div class="form-group">
       <label> Pname*</label>
       <input type="text" id="create_name" name="name" formControlName="Pname" />
       <span
@@ -27,7 +27,7 @@
       >
         Pname is required
       </span>
-    </div>
+    </div> -->
 
     <!-- <label> email*</label>
     <input text="text" name="email" formControlName="email" /> -->
@@ -71,6 +71,37 @@
         "
       >
         destination is required
+      </span>
+    </div>
+    <div class="form-group">
+      <label> price*</label>
+      <input type="text" formControlName="price" />
+      <span
+        class="text-danger"
+        *ngIf="
+          (addFormControl.price.touched || submitted) &&
+          addFormControl.price.errors?.required
+        "
+      >
+        price is required
+      </span>
+    </div>
+    <div class="form-group">
+      <label> User*</label>
+      <select formControlName="userId">
+        <option *ngFor="let user of users" value="user.id">
+          {{ user.name }} - {{ user.email }}
+        </option>
+      </select>
+      <!-- <input type="text" formControlName="userId" /> -->
+      <span
+        class="text-danger"
+        *ngIf="
+          (addFormControl.userId.touched || submitted) &&
+          addFormControl.userId.errors?.required
+        "
+      >
+        userId is required
       </span>
     </div>
 
