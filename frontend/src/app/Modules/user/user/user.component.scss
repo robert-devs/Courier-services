@@ -1,15 +1,17 @@
 .container {
   display: flex;
-  margin-top: 40px;
-  justify-content: center;
+  // margin: 0px;
   flex-wrap: wrap;
+  height: 100vh;
+  justify-content: center;
+  gap: 10px;
 }
 .main {
-  margin: 20px;
+  justify-content: center;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 30%;
+  margin-bottom: 20px;
+  text-align: center;
+  width: 25%;
   border-radius: 5px;
   height: 350px;
   box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.1);
@@ -30,6 +32,6 @@ span {
 .top {
   text-align: center;
 }
-.main :nth-child(3) {
-  display: flex;
-}
+// .main :nth-child(3) {
+//   display: flex;
+// }

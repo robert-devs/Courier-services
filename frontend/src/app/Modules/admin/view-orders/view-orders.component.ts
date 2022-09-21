@@ -5,7 +5,7 @@ import { Store } from '@ngrx/store';
 import { Iparcel } from 'src/app/Interfaces/interfaces';
 import { ParcelService } from 'src/app/Services/Parcel-service.service';
 import { getOrders } from 'src/app/Redux/reducers/ParcelReducers';
-import * as OrderActions from '../../../Redux/actions/ParcelsActions';
+import * as ParcelActions from '../../../Redux/actions/ParcelsActions';
 import { AnyFn } from '@ngrx/store/src/selector';
 
 @Component({
@@ -57,10 +57,10 @@ export class ViewOrdersComponent implements OnInit {
   loadParcels() {
     console.log(this.parcels);
 
-    this.store.dispatch(OrderActions.loadParcels());
+    this.store.dispatch(ParcelActions.loadParcels());
   }
   createParcel(newParcel: Iparcel) {
-    return this.store.dispatch(OrderActions.AddParcel({ newParcel }));
+    return this.store.dispatch(ParcelActions.AddParcel({ newParcel }));
   }
   // deleteParcel(id: string) {
   //   this.pacelService.getParcels().subscribe({
@@ -75,14 +75,16 @@ export class ViewOrdersComponent implements OnInit {
   // }
 
   deleteParcel(id: string) {
-    this.store.dispatch(OrderActions.DeleteParcel({ id }));
+    this.store.dispatch(ParcelActions.DeleteParcel({ id }));
   }
 
-  status(id: any) {
-    if (this.checked === OrderActions.SelectedId) {
-      this.store.dispatch(OrderActions.SelectedId({ id }));
-      console.log(id);
-    }
+  status(parcelId: string) {
+    // if (this.checked === ParcelActions.SelectedId) {
+    //   this.store.dispatch(ParcelActions.SelectedId({ id }));
+    //   console.log(id);
+    // }
+
+    // this.store.dispatch(ParcelActions.loadParcels());
     // this.store.dispatch(OrderActions.SelectedId({ id }));
 
     this.router.navigate([`/admin/status/delivered`]);

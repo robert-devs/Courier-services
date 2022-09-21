@@ -1,29 +1,31 @@
-<div class="container">
+<div class="wrapper">
   <div class="top">
-    <h1 routerLink="/service">Services</h1>
-    <p>belew are some of the services we offef to our customer</p>
+    <h2>welcome..</h2>
+    <h4>below are your package details</h4>
   </div>
-  <div class="main" *ngFor="let parcel of parcels | async">
-    <h2>SendIT<fa-icon [icon]="faTruck"></fa-icon></h2>
-    <h4>
-      Customer Name:<span>{{ parcel.uname }}</span>
-    </h4>
-    <h4>
-      Package Name:<span>{{ parcel.pname }}</span>
-    </h4>
-    <!-- <h4>
+  <div class="container">
+    <div class="main" *ngFor="let parcel of parcels | async">
+      <h2>SendIT<fa-icon [icon]="faTruck"></fa-icon></h2>
+      <h4>
+        Customer Name:<span>{{ parcel.uname }}</span>
+      </h4>
+      <h4>
+        Package Name:<span>{{ parcel.pname }}</span>
+      </h4>
+      <!-- <h4>
       Address:<span>{{ parcel.address }}</span>
     </h4> -->
-    <h4>
-      pick up point:<span>{{ parcel.destination }}</span>
-    </h4>
-    <h4>
-      Cost:<span>{{ parcel.price }}</span>
-    </h4>
-    <h4>
-      date :<span>{{ parcel.datetime }}</span>
-    </h4>
-    <h4>From SendIT:<span>Mombasa</span></h4>
+      <h4>
+        pick up point:<span>{{ parcel.destination }}</span>
+      </h4>
+      <h4>
+        Cost:<span>{{ parcel.price }}</span>
+      </h4>
+      <h4>
+        date :<span>{{ parcel.datetime }}</span>
+      </h4>
+      <h4>From SendIT:<span>Mombasa</span></h4>
+    </div>
   </div>
   <app-google-map></app-google-map>
 </div>

@@ -11,6 +11,7 @@ import { ParcelService } from 'src/app/Services/Parcel-service.service';
 })
 export class UsersComponent implements OnInit {
   users: Iuser[] = [];
+  filterText: string = '';
   constructor(private orderService: ParcelService) {}
 
   ngOnInit(): void {

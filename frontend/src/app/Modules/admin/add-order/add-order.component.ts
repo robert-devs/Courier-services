@@ -67,4 +67,7 @@ export class AddOrderComponent implements OnInit {
       complete: () => console.log('Complete loading users'),
     });
   }
+  status(parcelId: string) {
+    console.log('ertyui' + parcelId);
+  }
 }
