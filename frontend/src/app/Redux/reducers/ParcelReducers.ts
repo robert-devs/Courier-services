@@ -78,6 +78,16 @@ export const OrderReducer = createReducer(
     return { ...state, loadingParcels: false };
   }),
 
+  ///updateParcel
+  on(ParcelAction.updateParcel, (state): parcelState => {
+    return { ...state, loadingParcels: true };
+  }),
+  on(ParcelAction.updateParcelSuccess, (state): parcelState => {
+    return { ...state, loadingParcels: false };
+  }),
+  on(ParcelAction.updateParcelFailure, (state): parcelState => {
+    return { ...state, loadingParcels: false };
+  }),
   //delete order
 
   on(ParcelAction.DeleteParcel, (state): parcelState => {

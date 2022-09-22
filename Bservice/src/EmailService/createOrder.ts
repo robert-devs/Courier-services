@@ -51,10 +51,10 @@ const SendEmails= async()=>{
 
           try {
               
-              console.log('Sending Email');
+              console.log('Sending orders Email');
               await sendMail(messageoption)
               await pool.request().query(`UPDATE parcels SET issent='1' WHERE id = '${parcel.id}'`)
-              console.log('Email is Sent');
+              console.log('orders Email is Sent');
               
           } catch (error) {
               console.log(error);

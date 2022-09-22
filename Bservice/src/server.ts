@@ -7,11 +7,16 @@ import WelcomeEmail from './EmailService/registerUser'
 const app= express()
 
 const run =()=>{
-cron.schedule('*/ * * * * *', async() => {
-  console.log('running a 30 seconds');
-  await sendEmails()
-  await WelcomeEmail()
-})
+  cron.schedule('*/30 * * * * *', async() => {
+    console.log('WelcomeEmail running a 30 seconds');
+    await WelcomeEmail()
+  })
+
+  cron.schedule('*/30 * * * * *', async() => {
+    console.log('sendEmails running a 30 seconds');
+    await sendEmails()
+  })
+
 }
 run()
 

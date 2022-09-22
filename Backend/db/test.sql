@@ -58,3 +58,15 @@ DROP TABLE Orders
 --         (id, name, email, phone, address, password)
 
 DROP TABLE users
+
+
+-- ////
+
+CREATE OR ALTER  PROCEDURE welcome
+AS
+BEGIN
+    SELECT*
+    FROM users
+    WHERE issent = '0'
+END
+GO

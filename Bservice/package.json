@@ -5,7 +5,6 @@
   "main": "index.js",
   "scripts": {
     "start:build": "tsc -w",
-    "start:dev": "nodemon dist/server.js",
     "start:run": "nodemon dist/server.js",
     "start": "concurrently npm:start:*"
   },

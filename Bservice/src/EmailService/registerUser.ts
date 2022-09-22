@@ -23,39 +23,33 @@ const WelcomeEmail= async()=>{
 
 const users:User[]=  await (await db.exec('welcome')).recordset
 
- for(let user of users){
 
-    ejs.renderFile('templates/registration.ejs',{name:user.name} ,async(error,data)=>{
-
-        let messageoption={
-            from:process.env.EMAIL,
-            to:user.email,
-            subject:"Welcome To SendIT, Thanks for Signing Up!",
-            html:data,
-            attachments:[
-                {
-                    filename:'user.text',
-                    content:`Welcome email: ${user.name}`
-                }
-            ]
-        }
-
-        try {
-            console.log("sending email");
-            
-            await sendMail(messageoption)
-            await db.exec('updateWelcome',{id: user.id})
-            console.log('email sent');
-            
-        } catch (error) {
-            console.log(error);
-            
-        }
-
-
-    })
-
- }
+    Promise.all(users.map((user, i)=>{
+        ejs.renderFile('Templates/registration.ejs',{name:user.name} ,async(error,data)=>{
+    
+            let messageoption={
+                from:process.env.EMAIL,
+                to:user.email,
+                subject:"Welcome To SendIT, Thanks for Signing Up!",
+                html:data,
+            }
+    
+            try {
+                console.log("sending welcome email to ", user.email);
+                
+                await sendMail(messageoption)
+                await db.exec('updateWelcome',{id: user.id})
+                console.log('welcome email sent to', user.email);
+                
+            } catch (error) {
+                console.log(error);
+                
+            }
+    
+    
+        })
+    }))
+    
 
 
 }

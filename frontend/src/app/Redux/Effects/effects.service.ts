@@ -63,6 +63,24 @@ export class EffectsService {
       )
     );
   });
+  updateParcel = createEffect(() => {
+    return this.actions.pipe(
+      ofType(OrderActions.updateParcel),
+      mergeMap((action) =>
+        this.orderService.updateParcel(action.id).pipe(
+          tap((res) => {
+            this.store.dispatch(OrderActions.loadParcels());
+          }),
+          map((res) =>
+            OrderActions.updateParcelSuccess({ updatemessage: res.message })
+          )
+        )
+      ),
+      catchError((error) =>
+        of(OrderActions.updateParcelFailure({ error: error.message }))
+      )
+    );
+  });
   deleteOrder = createEffect(() => {
     return this.actions.pipe(
       ofType(OrderActions.DeleteParcel),

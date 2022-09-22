@@ -20,19 +20,19 @@ let configurations={
   
 
 
-  const sendMail = async(messageoption:any)=>{
-    const transporter = await createTransporter(configurations)
-    await transporter.verify()
-    await transporter.sendMail(messageoption, (error,info)=>{
-        if(error){
-          console.log("=================");
-          console.log(error);
-          console.log("=================");
-            
-        }
-        console.log(info.response);
-        
-    })
-  }
+const sendMail = async(messageoption:any)=>{
+  const transporter = await createTransporter(configurations)
+  await transporter.verify()
+  await transporter.sendMail(messageoption, (error,info)=>{
+      if(error){
+        console.log("=================");
+        console.log(error.message);
+        console.log("=================");  
+        return          
+      }
+      console.log(info.response);
+      
+  })
+}
 
-  export default sendMail
+export default sendMail

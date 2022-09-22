@@ -62,24 +62,16 @@ export class ViewOrdersComponent implements OnInit {
   createParcel(newParcel: Iparcel) {
     return this.store.dispatch(ParcelActions.AddParcel({ newParcel }));
   }
-  // deleteParcel(id: string) {
-  //   this.pacelService.getParcels().subscribe({
-  //     next: (data) => {
-  //       this.parcels = data;
-  //     },
-
-  //     error: (error) => console.log(error),
-
-  //     complete: () => console.log('Complete loading users'),
-  //   });
-  // }
 
   deleteParcel(id: string) {
     this.store.dispatch(ParcelActions.DeleteParcel({ id }));
   }
+  updateParcel(id: string) {
+    this.store.dispatch(ParcelActions.updateParcel({ id }));
+  }
 
   // function to update the parcel onDelivery
-  status(id: any) {
+  status(id: string) {
     this.pacelService.updateParcelOnDelivery(id).subscribe({
       next: (data) => {
         console.log(data);
