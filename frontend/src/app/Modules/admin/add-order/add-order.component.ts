@@ -27,9 +27,10 @@ export class AddOrderComponent implements OnInit {
 
   ngOnInit(): void {
     this.fetchUser();
+    // console.log(this.fetchUser);
+
     this.addForm = this.fb.group({
       Uname: ['', [Validators.required]],
-      // Pname: ['', [Validators.required]],
       weight: ['', [Validators.required]],
       price: ['', [Validators.required]],
       userId: ['', [Validators.required]],
@@ -44,16 +45,13 @@ export class AddOrderComponent implements OnInit {
   }
 
   add() {
-    console.log(this.addForm.value);
+    // console.log(this.addForm.value);
     this.submitted = true;
     if (this.addForm.valid) {
       this.store.dispatch(
         ParcelAction.AddParcel({ newParcel: this.addForm.value })
       );
     }
-
-    // this.store.dispatch(OrderActions.LoadOrders());
-    // this.router.navigate(['/admin/view-order']);
   }
   fetchUser() {
     this.orderService.getUsers().subscribe({
@@ -67,7 +65,7 @@ export class AddOrderComponent implements OnInit {
       complete: () => console.log('Complete loading users'),
     });
   }
-  status(parcelId: string) {
-    console.log('ertyui' + parcelId);
+  status(userId: string) {
+    console.log('ertyui' + userId);
   }
 }

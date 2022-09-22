@@ -9,6 +9,8 @@ import{v4 as uid}from 'uuid'
 
 
 
+
+
 export const createParcelController = async(req:ExtendsRequest,res:Response)=>{
       try {
         const pool= await mssql.connect(sqlConfig)
@@ -117,7 +119,7 @@ export const getParcelsByUserIdController:RequestHandler<{id:string}> = async(re
         }  
 }
 
-export const updateOrders:RequestHandler<{id:string}>=async(req,res)=>{
+export const updateParcels:RequestHandler<{id:string}>=async(req,res)=>{
     try {
           // Validate REQ BODY (JOI)
              const {error} = updateParcelSchema.validate(req.body);
@@ -136,10 +138,10 @@ export const updateOrders:RequestHandler<{id:string}>=async(req,res)=>{
             userId: string,
             datetime: string
         }
-        const projects = await pool.request()
+        const parcel = await pool.request()
            .input('id',mssql.VarChar,id)
            .execute('getParcelById')
-            if(!projects.recordset[0]){
+            if(!parcel.recordset[0]){
                 return res.json({message: `Parcel with id ${id} not found`})
             }
         await pool.request()
@@ -152,7 +154,7 @@ export const updateOrders:RequestHandler<{id:string}>=async(req,res)=>{
             .input('datetime',mssql.VarChar,datetime)
             .execute('updateParcel')
 
-        res.json({message:"project updated"})
+        res.json({message:"parcel updated"})
     } catch (error:any) {
         res.status(500).send({message:"Internal Server Error: "+ error.message,  success: false})
         
@@ -165,12 +167,12 @@ export const deleteParcel:RequestHandler<{id :string}> =async(req,res)=>{
         const pool= await mssql.connect(sqlConfig)
 
 
-        const orders = await pool.request()
+        const parcels = await pool.request()
            .input('id',mssql.VarChar,id)
            .execute('getParcelById') 
 
-        if(!orders.recordset[0]){
-                return res.status(404).send({message:`parcel with id '${id}' not found`, success: false})
+        if(!parcels.recordset[0]){
+            return res.status(404).send({message:`parcel with id '${id}' not found`, success: false})
         }
 
         await pool.request()
@@ -179,6 +181,28 @@ export const deleteParcel:RequestHandler<{id :string}> =async(req,res)=>{
 
         res.json({message:'Parcel deleted', success: true})
     } catch (error:any) {
+        res.status(500).send({message:"Internal Server Error: "+ error.message,  success: false})
+    }
+}
+export const ParcelStatus:RequestHandler<{id:string}>=async(req,res)=>{
+    try {
+        const id = req.params.id
+        const pool= await mssql.connect(sqlConfig)
+
+        const parcels = await pool.request()
+           .input('id',mssql.VarChar,id)
+           .execute('getParcelById') 
+
+           
+        if(!parcels.recordset[0]){
+            return res.status(404).send({message:`parcel with id '${id}' not found`, success: false})
+        }
+        await pool.request()
+         .input('id',mssql.VarChar,id)
+         .execute('upadteStatus')
+         res.json({message:'parcel delivered',success:true})
+
+     } catch (error:any) {
         res.status(500).send({message:"Internal Server Error: "+ error.message,  success: false})
     }
 }

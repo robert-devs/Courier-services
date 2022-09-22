@@ -59,4 +59,15 @@ export class ParcelService {
     console.log(id);
     return this.http.delete<{ message: string }>(`${this.baseUrl}/users/${id}`);
   }
+  updateParcel(id: string) {
+    return this.http.put<{ message: string }>(
+      `${this.baseUrl}/parcels/${id}`,
+      null
+    );
+  }
+
+  // function to uodate parcel on delivery
+  updateParcelOnDelivery(id: any) {
+    return this.http.put(`${this.baseUrl}/parcels/status/${id}`, null);
+  }
 }

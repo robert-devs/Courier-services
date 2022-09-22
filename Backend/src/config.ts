@@ -1,26 +1,3 @@
-//configuration to mysql db
-
-
-// export interface config{
-
-// }
-// export const sqlConfig = {
-//     user: "SA",
-//     password: "Abcd1234",
-//     database: "SendIT",
-//     server: "localhost",
-//     pool: {
-//     max: 10,
-//     min: 0,
-//     idleTimeoutMillis: 30000
-//   },
-//   options: {
-//     trustedConnection: true,
-//     encrypt: true,
-//     enableArithAbort: true,
-//     trustServerCertificate: true,
-//   }
-// }
 
 import dotenv from 'dotenv'
 dotenv.config()

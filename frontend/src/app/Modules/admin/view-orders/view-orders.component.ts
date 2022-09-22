@@ -90,4 +90,18 @@ export class ViewOrdersComponent implements OnInit {
     this.router.navigate([`/admin/status/delivered`]);
   }
   orderDelivered(id: number = 0) {}
+
+  // function to update the parcel onDelivery
+  updateParcelOnDeliveryFrontend(id: any) {
+    this.pacelService.updateParcelOnDelivery(id).subscribe({
+      next: (data) => {
+        console.log(data);
+        window.location.reload();
+      },
+
+      error: (error) => console.log(error),
+
+      complete: () => console.log('Completed updating parcel on delivery'),
+    });
+  }
 }

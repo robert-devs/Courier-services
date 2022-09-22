@@ -36,7 +36,10 @@
         <td>{{ parcel.weight }}</td>
         <td>{{ parcel.destination }}</td>
         <td>{{ parcel.price }}</td>
-        <td>{{ parcel.status }}</td>
+        <td>
+          <span *ngIf="parcel.status == 'pending'">Pending</span>
+          <span *ngIf="parcel.status == 'delivered'">delivered</span>
+        </td>
         <td>{{ parcel.datetime }}</td>
         <td>
           <input

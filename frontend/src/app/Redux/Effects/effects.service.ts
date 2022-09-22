@@ -16,7 +16,7 @@ export class EffectsService {
     private store: Store,
     private router: Router
   ) {}
-  loadOrder = createEffect(() => {
+  loadParcels = createEffect(() => {
     return this.actions.pipe(
       ofType(OrderActions.loadParcels),
       concatMap(() =>
@@ -44,7 +44,7 @@ export class EffectsService {
     );
   });
 
-  addOrder = createEffect(() => {
+  addParcel = createEffect(() => {
     return this.actions.pipe(
       ofType(OrderActions.AddParcel),
       mergeMap((action) =>

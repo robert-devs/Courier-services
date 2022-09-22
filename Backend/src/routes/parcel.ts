@@ -5,7 +5,9 @@ import {
     getAllParcels, 
     getOneParcelController, 
     getParcelsByUserIdController, 
-    updateOrders 
+    ParcelStatus, 
+    updateParcels, 
+    
 } from "../controllers/parcels.controller";
 
 const router = Router()
@@ -25,8 +27,10 @@ router.get('/assigned/:id',getParcelsByUserIdController)
 
 //update projects
 
-router.put('/:id',updateOrders)
+router.put('/:id',updateParcels)
 
+//update status
+router.put('/status/:id',ParcelStatus)
 //delete project
 
 router.delete('/:id',deleteParcel)

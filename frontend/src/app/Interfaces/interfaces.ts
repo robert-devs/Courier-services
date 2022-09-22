@@ -55,9 +55,5 @@ export interface IUserResponse {
   users: Iuser[];
   success: string;
 }
-export interface IParcelRes {
-  parcels: Iparcel[];
-  success: string;
-}
 
 //
