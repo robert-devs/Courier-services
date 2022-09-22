@@ -72,7 +72,7 @@
     <div class="form-group">
       <label> User*</label>
       <select formControlName="userId">
-        <option *ngFor="let user of users" value="user.id">
+        <option *ngFor="let user of users" [value]="user.id">
           {{ user.name }} - {{ user.email }}
         </option>
       </select>

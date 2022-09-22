@@ -75,3 +75,18 @@ select.ng-valid.ng-touched {
   color: red;
   font-size: 12px;
 }
+@media screen and (max-width: 450px) {
+  .card {
+    display: grid;
+    // min-height: 100vh;
+    width: 400px;
+    min-height: 600px;
+    margin: 20px;
+  }
+  img {
+    height: 380;
+  }
+  form {
+    border-radius: 8px;
+  }
+}

@@ -78,21 +78,8 @@ export class ViewOrdersComponent implements OnInit {
     this.store.dispatch(ParcelActions.DeleteParcel({ id }));
   }
 
-  status(parcelId: string) {
-    // if (this.checked === ParcelActions.SelectedId) {
-    //   this.store.dispatch(ParcelActions.SelectedId({ id }));
-    //   console.log(id);
-    // }
-
-    // this.store.dispatch(ParcelActions.loadParcels());
-    // this.store.dispatch(OrderActions.SelectedId({ id }));
-
-    this.router.navigate([`/admin/status/delivered`]);
-  }
-  orderDelivered(id: number = 0) {}
-
   // function to update the parcel onDelivery
-  updateParcelOnDeliveryFrontend(id: any) {
+  status(id: any) {
     this.pacelService.updateParcelOnDelivery(id).subscribe({
       next: (data) => {
         console.log(data);

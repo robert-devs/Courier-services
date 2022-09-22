@@ -29,3 +29,17 @@ li a {
   text-decoration: none;
   // color: rgb(247, 3, 182);
 }
+@media screen and (max-device-width: 640px) {
+  .container {
+    width: 400px;
+    // height: 600px;
+    color: black;
+    display: flex;
+  }
+  .navbar {
+    display: block;
+  }
+  .logo {
+    text-align: center;
+  }
+}

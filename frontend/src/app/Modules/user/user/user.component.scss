@@ -32,6 +32,10 @@ span {
 .top {
   text-align: center;
 }
-// .main :nth-child(3) {
-//   display: flex;
-// }
+@media screen and (max-width: 450px) {
+  .main {
+    width: 400px;
+    min-height: 400px;
+    margin: 5px;
+  }
+}

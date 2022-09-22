@@ -45,7 +45,7 @@ export class AddOrderComponent implements OnInit {
   }
 
   add() {
-    // console.log(this.addForm.value);
+    console.log(this.addForm.value);
     this.submitted = true;
     if (this.addForm.valid) {
       this.store.dispatch(
