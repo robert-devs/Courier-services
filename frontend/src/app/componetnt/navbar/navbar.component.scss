@@ -22,8 +22,21 @@
   gap: 3rem;
 }
 .logo {
-  color: rgb(247, 3, 182);
+  // color: rgb(247, 3, 182);
   font-style: oblique;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  gap: 2px;
+}
+.logo i {
+  color: red;
+}
+.logo h3 {
+  color: transparent;
+  font-style: oblique;
+  background-image: linear-gradient(90deg, red, blue);
+  background-clip: text;
 }
 li a {
   text-decoration: none;
@@ -40,6 +53,7 @@ li a {
     display: block;
   }
   .logo {
-    text-align: center;
+    align-items: center;
+    justify-content: center;
   }
 }
