@@ -12,7 +12,6 @@ import { HighlightDirective } from 'src/app/highlight.directive';
 import { HoverDirective } from './Directives/hover.directive';
 import { SearchPipe } from 'src/app/Pipes/search.pipe';
 import { UsersComponent } from './users/users.component';
-// import { FontAwesomeModule } from '@fortawesome/angular-fontawesome/fontawesome.module';
 
 @NgModule({
   declarations: [

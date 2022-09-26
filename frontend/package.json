@@ -27,6 +27,7 @@
     "@ngrx/effects": "^14.3.1",
     "@ngrx/store": "^14.3.1",
     "@ngrx/store-devtools": "^14.3.1",
+    "angular-google-maps": "^2.4.1",
     "bootstrap": "^5.2.1",
     "ionicons": "^6.0.3",
     "json-server": "^0.17.0",

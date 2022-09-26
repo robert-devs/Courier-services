@@ -42,5 +42,11 @@ main {
   // background-color: aliceblue;
   width: 120px;
   padding: 20px;
-  border-radius: 10px;
+}
+.sidebar img {
+  border-radius: 50% / 25%;
+  display: grid;
+  height: 200px;
+  margin: 0 auto;
+  width: 150px;
 }
