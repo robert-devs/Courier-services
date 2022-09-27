@@ -12,6 +12,7 @@ import { HighlightDirective } from 'src/app/highlight.directive';
 import { HoverDirective } from './Directives/hover.directive';
 import { SearchPipe } from 'src/app/Pipes/search.pipe';
 import { UsersComponent } from './users/users.component';
+import { EditComponent } from './edit/edit.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { UsersComponent } from './users/users.component';
     HighlightDirective,
     HoverDirective,
     UsersComponent,
+    EditComponent,
   ],
   imports: [
     CommonModule,

@@ -13,7 +13,7 @@ export const LoadParcelsFailure = createAction(
   'LoadParcelsFailure',
   props<{ error: string }>()
 );
-
+//delete parcel
 export const DeleteParcel = createAction(
   'DeleteParcel',
   props<{ id: string }>()
@@ -50,7 +50,7 @@ export const AddParcelFailure = createAction(
   'AddParcelFailure',
   props<{ error: string }>()
 );
-//
+//userParcel
 
 export const loadUserParcels = createAction(
   '[Parcel] Load User Parcels',
@@ -64,3 +64,5 @@ export const loadUserParcelsFailure = createAction(
   '[Parcel] Load User Parcels Failure',
   props<{ error: string }>()
 );
+
+//delete user aparcel

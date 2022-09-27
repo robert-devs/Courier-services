@@ -21,7 +21,10 @@ export class AuthEffects {
       mergeMap((action) =>
         this.authService.loginUser(action.details).pipe(
           tap((res) => {
+            console.log(res);
+
             localStorage.setItem('user', JSON.stringify(res));
+            localStorage.setItem('role', res.role);
             if (res.role === 'Admin') {
               this.router.navigate(['/admin']);
             } else {
@@ -45,6 +48,7 @@ export class AuthEffects {
         this.authService.registerUser(action.details).pipe(
           tap((res) => {
             localStorage.setItem('user', JSON.stringify(res));
+            localStorage.setItem('role', res.role);
             if (res.role === 'admin') {
               this.router.navigate(['/admin']);
             } else {

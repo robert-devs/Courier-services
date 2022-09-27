@@ -7,6 +7,7 @@ import {
 } from '@ngrx/store';
 import { Iparcel } from 'src/app/Interfaces/interfaces';
 import * as ParcelAction from '../actions/ParcelsActions';
+import { DeleteUser } from '../actions/user.Action';
 export interface parcelState {
   parcels: Iparcel[];
   parcelError: string;
@@ -98,5 +99,8 @@ export const OrderReducer = createReducer(
   }),
   on(ParcelAction.DeleteParcelFailure, (state): parcelState => {
     return { ...state, loadingParcels: false };
-  })
+  }),
+
+  // delete user
+
 );

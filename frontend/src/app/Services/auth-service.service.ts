@@ -18,9 +18,12 @@ export class AuthServiceService {
       map((res: any) => {
         console.log({ res });
 
+        alert('login successful');
         return res.user;
       }),
       catchError((error: any) => {
+        alert('login successful');
+
         return throwError(() => new Error(error.error.message));
       })
     );

@@ -18,11 +18,14 @@ export class UsersComponent implements OnInit {
     // this.fetchUser;
     this.fetchUser();
   }
-  // deleteUser(id: string) {
-  //   this.orderService.deleteUser(id).subscribe({
-  //     next:
-  //   });
-  // }
+  deleteUser(id: string) {
+    this.orderService.deleteUser(id).subscribe({
+      next: (id) => {
+        this.users.slice();
+        return this.fetchUser();
+      },
+    });
+  }
 
   fetchUser() {
     this.orderService.getUsers().subscribe({
@@ -35,4 +38,7 @@ export class UsersComponent implements OnInit {
       complete: () => console.log('Complete loading users'),
     });
   }
+  // deleteUser(id: string['0']) {
+  //   this.orderService.deleteUser(id);
+  // }
 }
