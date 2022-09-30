@@ -33,6 +33,7 @@
   color: red;
 }
 .logo h3 {
+  cursor: pointer;
   color: transparent;
   font-style: oblique;
   background-image: linear-gradient(90deg, red, blue);
@@ -40,6 +41,7 @@
 }
 li a {
   text-decoration: none;
+  cursor: pointer;
   // color: rgb(247, 3, 182);
 }
 @media screen and (max-device-width: 640px) {

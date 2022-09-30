@@ -2,7 +2,7 @@ table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
   align-self: flex-start;
-  width: 50%;
+  max-width: 50%;
   align-self: auto;
 }
 th {
@@ -34,6 +34,9 @@ tr:nth-child(even) {
   color: white;
   border-radius: 10px;
 }
+h1 {
+  text-align: center;
+}
 .search input {
   margin: 10px;
   background-color: rgb(210, 220, 220);
@@ -41,6 +44,13 @@ tr:nth-child(even) {
   padding: 10px;
   border-radius: 10px;
 }
+.search {
+  margin-top: 20px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
 span status delivered {
   color: rgb(255, 0, 230);
 }

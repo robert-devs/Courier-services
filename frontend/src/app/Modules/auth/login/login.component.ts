@@ -20,7 +20,11 @@ export class LoginComponent implements OnInit {
   };
   errorMessage$: Observable<string> = new Observable();
 
-  constructor(private store: Store) {}
+  constructor(
+    private store: Store,
+    private authServise: AuthServiceService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.errorMessage$ = this.store.select(getAuthError);
@@ -30,6 +34,11 @@ export class LoginComponent implements OnInit {
       this.store.dispatch(
         AuthActions.loginUser({ details: this.loginDetails })
       );
+      if (this.authServise.redirectUrl) {
+        this.router.navigateByUrl(this.authServise.redirectUrl);
+      } else {
+        this.router.navigate(['/user']);
+      }
     }
 
     // const users = this.form.values

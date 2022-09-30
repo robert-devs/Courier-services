@@ -10,7 +10,8 @@ import { Iregister, Iuser, userInfo } from '../Interfaces/interfaces';
 export class AuthServiceService {
   // isLogedIn: boolean = false;
   private baseUrl = 'http://localhost:8000';
-
+  redirectUrl: string | undefined;
+  //
   constructor(private http: HttpClient, private router: Router) {}
 
   loginUser(user: { email: string; password: string }) {

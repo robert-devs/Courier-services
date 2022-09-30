@@ -16,6 +16,7 @@ export class GuardsGuard implements CanActivate {
     if (localStorage.getItem('role') === 'Admin') {
       return true;
     } else {
+      // this.authService.redirectUrl= url
       this.router.navigate(['auth/Login']);
       return false;
     }
