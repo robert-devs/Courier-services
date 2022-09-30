@@ -7,6 +7,7 @@ import { NavbarComponent } from './componetnt/navbar/navbar.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NotFoundComponent } from './componetnt/not-found/not-found.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { GoogleMapComponent } from './shared/google-map/google-map.component';
 import { GoogleMapsModule } from '@angular/google-maps';
@@ -20,6 +21,7 @@ import { environment } from 'src/environments/environment';
 import { authReducer } from './state/auth.reducers';
 import { AuthEffects } from './state/auth.effects';
 import { EffectsService } from './Redux/Effects/effects.service';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -27,8 +29,11 @@ import { EffectsService } from './Redux/Effects/effects.service';
     HomeComponent,
     NavbarComponent,
     NotFoundComponent,
+    PageNotFoundComponent,
   ],
   imports: [
+    BrowserAnimationsModule,
+
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,

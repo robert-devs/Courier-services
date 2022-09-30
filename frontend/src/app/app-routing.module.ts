@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router'; // CLI imports router
 import { HomeComponent } from './componetnt/home/home.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {
@@ -26,7 +27,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./Modules/user/user.module').then((mod) => mod.UserModule),
   },
-  // { path: '**', component: NotFoundComponent },
+  { path: '**', component: PageNotFoundComponent },
 ];
 // configures NgModule imports and exports
 @NgModule({

@@ -24,7 +24,10 @@
     </tr>
     <ng-container *ngIf="parcels$ | async as parcels">
       <!-- {{ parcels$ }} -->
-      <tr *ngFor="let parcel of parcels | search: filterText">
+      <tr
+        *ngFor="let parcel of parcels | search: filterText"
+        routerLinkActive="active"
+      >
         <!-- <td>{{ order.id }}</td> -->
         <td>
           {{ parcel.parcelId.substring(0, 4) }}...{{

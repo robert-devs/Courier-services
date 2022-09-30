@@ -57,3 +57,12 @@ li a {
     justify-content: center;
   }
 }
+.container .navbar .list .active {
+  // background-color: red;
+  padding: 5px;
+  color: red;
+}
+
+.container .navbar .list .active ::after {
+  color: black;
+}
