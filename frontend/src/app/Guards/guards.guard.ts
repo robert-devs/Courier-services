@@ -1,5 +1,10 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, Router } from '@angular/router';
+import {
+  ActivatedRouteSnapshot,
+  CanActivate,
+  Route,
+  Router,
+} from '@angular/router';
 
 import { Observable } from 'rxjs';
 import { AuthServiceService } from '../Services/auth-service.service';
@@ -21,4 +26,7 @@ export class GuardsGuard implements CanActivate {
       return false;
     }
   }
+  // canLoad(route:Route);boolean{
+  //   return this.checkLoggedIn(routes.path)
+  // }
 }

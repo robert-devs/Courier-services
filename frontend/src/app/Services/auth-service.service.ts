@@ -17,7 +17,7 @@ export class AuthServiceService {
   loginUser(user: { email: string; password: string }) {
     return this.http.post(`${this.baseUrl}/users/login`, user).pipe(
       map((res: any) => {
-        console.log({ res });
+        // console.log({ res });
 
         alert('login successful');
         return res.user;
