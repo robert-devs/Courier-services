@@ -9,7 +9,7 @@ import { NotFoundComponent } from './componetnt/not-found/not-found.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { GoogleMapComponent } from './shared/google-map/google-map.component';
+// import { GoogleMapComponent } from './shared/google-map/google-map.component';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { SharedModule } from './shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';

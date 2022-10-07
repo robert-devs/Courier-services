@@ -50,3 +50,17 @@ main {
   margin: 0 auto;
   width: 150px;
 }
+@media screen and (max-width: 450px) {
+  .wrapper {
+    width: 400px;
+    min-height: 400px;
+    flex-direction: column;
+    flex-wrap: wrap;
+    display: block;
+    margin: 5px;
+  }
+  main {
+    display: block;
+    flex-direction: column;
+  }
+}

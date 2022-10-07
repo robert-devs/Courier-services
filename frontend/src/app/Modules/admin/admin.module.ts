@@ -13,6 +13,7 @@ import { HoverDirective } from './Directives/hover.directive';
 import { SearchPipe } from 'src/app/Pipes/search.pipe';
 import { UsersComponent } from './users/users.component';
 import { EditComponent } from './edit/edit.component';
+import { filterPipe } from 'src/app/Pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { EditComponent } from './edit/edit.component';
     ViewOrdersComponent,
     StatusComponent,
     SearchPipe,
+    filterPipe,
     AdminComponent,
     HighlightDirective,
     HoverDirective,

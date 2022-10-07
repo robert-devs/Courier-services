@@ -57,3 +57,20 @@ span status delivered {
 span status de {
   color: cyan;
 }
+@media screen and (max-width: 450px) {
+  table thead {
+    flex-direction: column;
+    display: block;
+    width: 100px;
+    justify-content: space-between;
+  }
+  th {
+    // display: block;
+    text-align: left;
+  }
+  td {
+    text-align: right;
+    // display: block;
+    align-self: auto;
+  }
+}
