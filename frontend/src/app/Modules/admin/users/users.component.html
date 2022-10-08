@@ -1,4 +1,6 @@
 <div>
+  <h1>Users...</h1>
+
   <div class="search">
     <input
       class="filter"
@@ -8,8 +10,6 @@
     />
   </div>
   <table>
-    <h1>Users...</h1>
-
     <tr>
       <th>Id</th>
       <th>name</th>
@@ -19,7 +19,7 @@
       <th>role</th>
       <th></th>
     </tr>
-    <tr *ngFor="let user of users">
+    <tr *ngFor="let user of users | filter: filterText">
       <td>
         {{ user.id.substring(0, 4) }}...{{
           user.id.split("").splice(-4).join("")

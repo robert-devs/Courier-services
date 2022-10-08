@@ -4,6 +4,7 @@ table {
   align-self: flex-start;
   max-width: 50%;
   align-self: auto;
+  margin: auto 5px;
 }
 th {
   color: rgb(255, 0, 153);
@@ -35,7 +36,8 @@ tr:nth-child(even) {
   border-radius: 10px;
 }
 h1 {
-  text-align: center;
+  margin: 25px;
+  // text-align: center;
 }
 .search input {
   margin: 10px;
@@ -45,8 +47,8 @@ h1 {
   border-radius: 10px;
 }
 .search {
-  margin-top: 20px;
-  justify-content: center;
+  margin: auto 0;
+  // justify-content: center;
   display: flex;
   align-items: center;
 }

@@ -40,8 +40,11 @@ tr:nth-child(even) {
   padding: 10px;
   border-radius: 10px;
 }
+h1 {
+  margin-left: 25px;
+}
 .search {
-  justify-content: center;
+  // justify-content: center;
   display: flex;
   align-items: center;
 }

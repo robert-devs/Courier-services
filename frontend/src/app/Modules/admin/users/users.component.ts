@@ -12,14 +12,14 @@ import { ParcelService } from 'src/app/Services/Parcel-service.service';
 export class UsersComponent implements OnInit {
   users: Iuser[] = [];
   filterText: string = '';
-  constructor(private orderService: ParcelService) {}
+  constructor(private parcelService: ParcelService) {}
 
   ngOnInit(): void {
     // this.fetchUser;
     this.fetchUser();
   }
   deleteUser(id: string) {
-    this.orderService.deleteUser(id).subscribe({
+    this.parcelService.deleteUser(id).subscribe({
       next: (id) => {
         this.users.slice();
         return this.fetchUser();
@@ -28,7 +28,7 @@ export class UsersComponent implements OnInit {
   }
 
   fetchUser() {
-    this.orderService.getUsers().subscribe({
+    this.parcelService.getUsers().subscribe({
       next: (data) => {
         this.users = data.users;
       },
