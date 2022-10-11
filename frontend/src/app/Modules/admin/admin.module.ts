@@ -12,7 +12,6 @@ import { HighlightDirective } from 'src/app/highlight.directive';
 import { HoverDirective } from './Directives/hover.directive';
 import { SearchPipe } from 'src/app/Pipes/search.pipe';
 import { UsersComponent } from './users/users.component';
-import { EditComponent } from './edit/edit.component';
 import { filterPipe } from 'src/app/Pipes/filter.pipe';
 
 @NgModule({
@@ -26,7 +25,6 @@ import { filterPipe } from 'src/app/Pipes/filter.pipe';
     HighlightDirective,
     HoverDirective,
     UsersComponent,
-    EditComponent,
   ],
   imports: [
     CommonModule,

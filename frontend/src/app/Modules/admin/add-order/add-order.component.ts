@@ -5,7 +5,6 @@ import { Iparcel, Iuser } from 'src/app/Interfaces/interfaces';
 import { ParcelService } from 'src/app/Services/Parcel-service.service';
 
 import { Router } from '@angular/router';
-import { getOrders } from 'src/app/Redux/reducers/ParcelReducers';
 import * as ParcelAction from '../../../Redux/actions/ParcelsActions';
 
 @Component({
